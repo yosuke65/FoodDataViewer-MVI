@@ -8,15 +8,16 @@ ext {
     testRunnerVersion = '1.2.0'
     espressoVersion = '3.2.0'
     navigationVersion = '2.1.0'
-    materialVersion = '1.0.0'
+    materialVersion = '1.1.0'
     rxjavaVersion = '2.2.9'
     rxandroidVersion = '2.1.1'
     rxbindingVersion = '3.0.0-alpha2'
     mobiusVersion = '1.2.2'
     daggerVersion = '2.23.1'
-    lifecycleVersion = '2.0.0'
+    lifecycleVersion = '2.1.0'
     googleServicesVersion = '4.3.1'
-    visionVersion = '23.0.0'
+    visionVersion = '24.0.0'
+    mlKitVersion = '17.0.0'
     fotoapparatVersion = '2.6.1'
     okhttpVersion = '3.11.0'
     retrofitVersion = '2.4.0'
@@ -28,16 +29,15 @@ ext {
     testingVersion = '1.2.0'
     mockWebServerVersion = '4.2.1'
 }
-
     buildscript {
         repositories {
             google()
             mavenCentral()
         }
         dependencies {
-            classpath "com.android.tools.build:gradle:7.0.3"
-            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
-            classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.1.0"
+            classpath "com.android.tools.build:gradle:7.0.0"
+            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.20"
+            classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
             classpath "com.google.gms:google-services:4.3.1"
 
             // NOTE: Do not place your application dependencies here; they belong

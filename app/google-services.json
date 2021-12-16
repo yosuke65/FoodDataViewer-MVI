@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "811610866676",
+    "project_id": "fooddataviewer-a19dc",
+    "storage_bucket": "fooddataviewer-a19dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811610866676:android:017cf2507b124cd064efa1",
+        "android_client_info": {
+          "package_name": "com.example.fooddataviewer_mvi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811610866676-9e3garaondndh44hivtler3cnv903qmj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz_BhQRFN1D8bF5PKhoOQgVNNsc_XyUZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811610866676-9e3garaondndh44hivtler3cnv903qmj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

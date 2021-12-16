@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FoodDataViewer-MVI</string>
+    <string name="food_list_submit">Submit</string>
 </resources>

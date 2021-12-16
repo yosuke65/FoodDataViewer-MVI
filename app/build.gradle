@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
 apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdk 31
+    compileSdk 30
 
     defaultConfig {
         applicationId "com.example.fooddataviewer_mvi"
         minSdk 21
-        targetSdk 31
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -33,6 +33,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures {
+        viewBinding true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -40,11 +43,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-}
-
-
-androidExtensions {
-    experimental = true
 }
 
 dependencies {
@@ -72,7 +70,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
 
-    implementation "com.google.firebase:firebase-ml-vision:$visionVersion"
+//    implementation "com.google.firebase:firebase-ml-vision:$visionVersion"
+//    implementation "com.google.android.gms:play-services-mlkit-barcode-scanning:$mlKitVersion"
+    implementation "com.google.mlkit:barcode-scanning:17.0.1"
+    implementation "com.google.mlkit:object-detection:16.2.8"
 
     implementation "io.fotoapparat:fotoapparat:$fotoapparatVersion"
 
@@ -97,6 +98,10 @@ dependencies {
     instrumentedImplementation "androidx.test:core:$testingVersion"
     instrumentedImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
     instrumentedImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+
+    debugImplementation('com.github.ajitsing:sherlock:1.0.4@aar') {
+        transitive = true
+    }
 }
 
 apply plugin: 'com.google.gms.google-services'
