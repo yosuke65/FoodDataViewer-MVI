@@ -11,5 +11,5 @@ data class ScanModel(
 sealed class ProcessBarcodeResult {
     object Empty: ProcessBarcodeResult()
     object Error: ProcessBarcodeResult()
-    data class ProductLoaded(val product: Product): ProcessBarcodeResult()
+    data class BarcodeLoaded(val product: Product): ProcessBarcodeResult()
 }

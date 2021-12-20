@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">FoodDataViewer-MVI</string>
     <string name="food_list_submit">Submit</string>
+
+    <string name="scan_error">An error occured</string>
+    <string name="scan_carbs">Carbs:</string>
+    <string name="scan_protein">Protein:</string>
+    <string name="scan_fat">Fat:</string>
+    <string name="scan_energy">Energy:</string>
+    <string name="scan_energy_value">%1$d kcal</string>
+    <string name="scan_macro_value">%1$.1fg</string>
+
+    <string name="food_details_save">Save</string>
+    <string name="food_details_delete">Delete</string>
+    <string name="food_details_carbs">Carbs:</string>
+    <string name="food_details_protein">Protein:</string>
+    <string name="food_details_fat">Fat:</string>
+    <string name="food_details_energy">Energy:</string>
+    <string name="food_details_energy_value">%1$d kcal</string>
+    <string name="food_details_macro_value">%1$.1fg</string>
+    <string name="food_details_ingridients">Ingridients: %1$s</string>
 </resources>

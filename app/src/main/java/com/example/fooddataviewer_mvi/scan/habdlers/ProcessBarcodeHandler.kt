@@ -19,12 +19,12 @@ class ProcessBarcodeHandler @Inject constructor(private val productRepository: P
     override fun apply(upstream: Observable<ProcessBarcode>): ObservableSource<ScanEvent> {
         return upstream.switchMap { effect ->
             productRepository.getProductFromApi(effect.barcode)
-                .map { product -> ProductLoaded(product) as ScanEvent }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnError { error -> Log.e("ProcessBarcode", error.message, error)}
-                .onErrorReturnItem(BarcodeError)
-                .toObservable()
+                ?.map { product -> ProductLoaded(product) as ScanEvent }
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.doOnError { error -> Log.e("ProcessBarcode", error.message, error)}
+                ?.onErrorReturnItem(BarcodeError)
+                ?.toObservable()
         }
     }
 }

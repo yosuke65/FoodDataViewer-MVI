@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.fooddataviewer_mvi.di.ApplicationComponent
 import com.example.fooddataviewer_mvi.di.DaggerApplicationComponent
+import com.readystatesoftware.chuck.Chuck
 import com.singhajit.sherlock.core.Sherlock
 import kotlin.reflect.KClass
 
@@ -21,6 +22,7 @@ class App: Application(){
     override fun onCreate() {
         super.onCreate()
         Sherlock.init(this);
+//        Chuck.getLaunchIntent(this)
     }
 }
 

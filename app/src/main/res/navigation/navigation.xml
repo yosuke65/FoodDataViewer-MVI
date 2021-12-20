@@ -10,9 +10,21 @@
             android:id="@+id/scan"
             app:destination="@+id/scanFragment"/>
     </fragment>
+
     <fragment
         android:id="@+id/scanFragment"
         android:name="com.example.fooddataviewer_mvi.scan.ScanFragment">
-
+        <action
+            android:id="@+id/foodDetails"
+            app:destination="@id/foodDetailsFragment"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.example.fooddataviewer_mvi.fooddetails.FoodDetailsFragment">
+        <argument
+            android:name="barcode"
+            app:argType="string"/>
+    </fragment>
+
 </navigation>

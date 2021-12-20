@@ -12,3 +12,5 @@ data class Detected(val barcode: String): ScanEvent()
 data class ProductLoaded(val product: Product): ScanEvent()
 
 object BarcodeError: ScanEvent()
+
+object ProductInfoClicked: ScanEvent()

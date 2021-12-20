@@ -7,5 +7,5 @@ import retrofit2.http.Path
 interface ProductService {
 
     @GET("product/{barcode}.json")
-    fun getProduct(@Path("barcode") barcode: String): Single<Response>
+    fun getProduct(@Path("barcode") barcode: String): Single<Response>?
 }

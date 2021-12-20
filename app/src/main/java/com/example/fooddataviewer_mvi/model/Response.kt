@@ -1,5 +1,6 @@
 package com.example.fooddataviewer_mvi.model
 
+import com.example.fooddataviewer_mvi.model.dto.ProductDto
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)

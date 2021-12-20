@@ -4,11 +4,13 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.fooddataviewer_mvi.R
+import com.example.fooddataviewer_mvi.fooddetails.FoodDetailsViewModel
 import com.example.fooddataviewer_mvi.foodlist.FoodListViewModel
 import com.example.fooddataviewer_mvi.model.ProductService
 import com.example.fooddataviewer_mvi.scan.ScanViewModel
 import com.example.fooddataviewer_mvi.utils.ActivityService
 import com.example.fooddataviewer_mvi.utils.Navigator
+import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.*
 import dagger.multibindings.IntoMap
 import okhttp3.OkHttpClient
@@ -34,7 +36,11 @@ internal  annotation class ViewModelKey(val value: KClass<out ViewModel>)
 internal annotation class ApiBaseUrl
 
 @Singleton
-@Component(modules = [ApplicationModule::class, ViewModelModule::class, ApiModule::class])
+@Component(modules = [
+    ApplicationModule::class,
+    ViewModelModule::class,
+    ApiModule::class]
+)
 interface ApplicationComponent {
 
     fun viewModelFactory():ViewModelProvider.Factory
@@ -73,8 +79,8 @@ object ApplicationModule {
     }
 
     @Provides
-    @Singleton
     @JvmStatic
+    @ApiBaseUrl
     fun apiBaseUrl(context: Context): String = context.getString(R.string.api_base_url)
 }
 
@@ -89,6 +95,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ScanViewModel::class)
     abstract fun scanViewModel(viewModel: ScanViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(FoodDetailsViewModel::class)
+    abstract fun foodDetailsViewModel(viewModel: FoodDetailsViewModel): ViewModel
 }
 
 @Module
@@ -97,11 +108,17 @@ object ApiModule {
     @Provides
     @Singleton
     @JvmStatic
-    fun okhttpClient(): OkHttpClient {
+    fun okhttpClient(context: Context): OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            .addInterceptor(chuckInterceptor(context))
+//            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .build()
     }
+
+    @Provides
+    @Singleton
+    @JvmStatic
+    fun chuckInterceptor(context: Context) = ChuckInterceptor(context)
 
     @Provides
     @Singleton
