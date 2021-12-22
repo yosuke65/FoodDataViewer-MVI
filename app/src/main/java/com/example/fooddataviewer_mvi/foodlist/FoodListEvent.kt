@@ -1,5 +1,13 @@
 package com.example.fooddataviewer_mvi.foodlist
 
-sealed class FoodListEvent {
-    object AddButtonClicked: FoodListEvent()
-}
+import com.example.fooddataviewer_mvi.model.Product
+
+sealed class FoodListEvent
+
+object Initial : FoodListEvent()
+
+data class ProductLoaded(val products: List<Product>) : FoodListEvent()
+
+object AddButtonClicked : FoodListEvent()
+
+data class ProductClicked(val barcode: String) : FoodListEvent()

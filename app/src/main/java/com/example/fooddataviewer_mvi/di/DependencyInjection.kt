@@ -3,13 +3,16 @@ package com.example.fooddataviewer_mvi.di
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.room.Room
 import com.example.fooddataviewer_mvi.R
 import com.example.fooddataviewer_mvi.fooddetails.FoodDetailsViewModel
 import com.example.fooddataviewer_mvi.foodlist.FoodListViewModel
 import com.example.fooddataviewer_mvi.model.ProductService
+import com.example.fooddataviewer_mvi.model.database.ApplicationDatabase
 import com.example.fooddataviewer_mvi.scan.ScanViewModel
 import com.example.fooddataviewer_mvi.utils.ActivityService
 import com.example.fooddataviewer_mvi.utils.Navigator
+import com.google.android.material.tabs.TabLayout
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.*
 import dagger.multibindings.IntoMap
@@ -39,7 +42,9 @@ internal annotation class ApiBaseUrl
 @Component(modules = [
     ApplicationModule::class,
     ViewModelModule::class,
-    ApiModule::class]
+    ApiModule::class,
+    DatabaseModule::class
+    ]
 )
 interface ApplicationComponent {
 
@@ -138,4 +143,21 @@ object ApiModule {
     fun productService(retrofit: Retrofit): ProductService {
        return retrofit.create(ProductService::class.java)
     }
+}
+
+@Module
+object DatabaseModule {
+
+    @Provides
+    @Singleton
+    @JvmStatic
+    fun applicationDatabase(context: Context): ApplicationDatabase{
+        return Room.databaseBuilder(context, ApplicationDatabase::class.java, "application")
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    @JvmStatic
+    fun productDao(database: ApplicationDatabase) = database.productDao()
 }

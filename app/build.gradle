@@ -24,10 +24,7 @@ android {
     }
 
     buildTypes {
-        debug{
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+
         instrumented {
             initWith debug
             applicationIdSuffix '.instrumented'
@@ -92,10 +89,10 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:$glideVersion"
 
-//    implementation "androidx.room:room-runtime:$roomVersion"
-//    kapt "androidx.room:room-compiler:$roomVersion"
-//    implementation "androidx.room:room-rxjava2:$roomVersion"
-//    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-rxjava2:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
     androidTestImplementation "androidx.test:runner:$testRunnerVersion"
     implementation "androidx.test.espresso:espresso-core:$espressoVersion"
     androidTestImplementation "androidx.test:rules:$rulesVersion"

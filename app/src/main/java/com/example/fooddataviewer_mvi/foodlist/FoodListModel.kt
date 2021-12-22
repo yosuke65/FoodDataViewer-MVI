@@ -1,4 +1,5 @@
 package com.example.fooddataviewer_mvi.foodlist
 
-object FoodListModel {
-}
+import com.example.fooddataviewer_mvi.model.Product
+
+data class FoodListModel (val products: List<Product> = listOf())
